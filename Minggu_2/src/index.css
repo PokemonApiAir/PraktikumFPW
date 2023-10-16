@@ -1,4 +1,20 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h-6\/7{
+  height: 90%;
+}
+
+.h-1\/7{
+  height: 7%;
+}
+
+.bg-snow{
+  background-color: snow;
+}
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,4 +82,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
