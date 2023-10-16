@@ -12,7 +12,8 @@ export default function Left(props) {
                     <div className="w-full h-full py-8 px-8">
                         {itemData.map((data, idx) => (
                             <div key={idx} onClick={() => {
-                                console.log(data);
+                                props.setMenu([...data.menu]);
+                                props.setIndexActive(idx);
                                 props.setDataActive(data);
                                 props.setAddNewPlan(false);
                             }}>
