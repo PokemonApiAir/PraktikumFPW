@@ -13,6 +13,7 @@ export default function Menu(props) {
                 <input id="long" type="text" className="w-12 h-9 py-0.5 rounded-lg border border-black text-center" placeholder="10"/>
                 <select name="time" id="time" className="w-24 pt-1 pb-1.5 ps-3 border border-black rounded-lg">
                     <option value="mins">mins</option>
+                    <option value="secs">secs</option>
                     <option value="x">x</option>
                 </select>
                 <button onClick={() => {

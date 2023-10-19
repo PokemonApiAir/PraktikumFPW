@@ -1,35 +1,78 @@
 import {useState} from "react"
 import Menu from "./menu"
 import MenuExist from "./menuexist"
+import Viewonly from "./viewonly"
 
 export default function Right(props) {
     const saveData = (type, indexActive) => {
-        const data = props.dataActive;
+        let data;
         let container;
         if(type == "data-active"){
             container = document.querySelector(".data-active");
+            data = props.dataActive;
         }else if(type == "create-new"){
             container = document.querySelector(".create-new");
+            data = {
+                nama: "",
+                difficulty: "",
+                from: 0,
+                to: 0,
+                gender: 0,
+                menu: []
+            }
         }
-        data.nama = container.querySelector("#plan-name").value;
-        data.difficulty = container.querySelector("#difficulty").value;
-        data.from = container.querySelector("#from").value;
-        data.to = container.querySelector("#to").value;
-        data.gender = container.querySelector("#gender").value;
+        data.nama = container.querySelector("#plan-name").value != "" ? container.querySelector("#plan-name").value : alert("Nama tidak boleh kosong");
+        data.difficulty = container.querySelector("#difficulty").value != "" ? container.querySelector("#plan-name").value : alert("Difficulty tidak boleh kosong");
+        data.from = container.querySelector("#from").value != "" ? container.querySelector("#plan-name").value : alert("Interval waktu tidak boleh kosong");
+        data.to = container.querySelector("#to").value != "" ? container.querySelector("#plan-name").value : alert("Interval waktu tidak boleh kosong");
+        data.gender = container.querySelector("#gender").value != "" ? container.querySelector("#plan-name").value : alert("Gender tidak boleh kosong");
         const menuListElements = container.querySelectorAll(".menu-list")[0];
         const arrTemp = [];
         const dataElements = menuListElements.querySelectorAll(".data");
-        dataElements.forEach(element => {
-            const tempData = {
-                set: element.querySelector("#set").value,
-                nama: element.querySelector("#workout-name").value,
-                long: element.querySelector("#long").value,
-                time: element.querySelector("#time").value
+        let check = true;
+        dataElements.forEach((element, index) => {
+            if(element.querySelector("#set").value == "" || element.querySelector("#workout-name").value == "" || element.querySelector("#long").value == "" || element.querySelector("#time").value == ""){
+                check = false;
+            }else{
+                const tempData = {
+                    id: index,
+                    set: parseInt(element.querySelector("#set").value),
+                    workout_name: element.querySelector("#workout-name").value,
+                    long: parseInt(element.querySelector("#long").value),
+                    time: element.querySelector("#time").value,
+                    status: 1
+                }
+                arrTemp.push(tempData);
             }
-            arrTemp.push(tempData);
         });
-        
+        if(!check){
+            alert("Input tidak boleh kosong!");
+        }else{
+            data.menu = arrTemp;
+            const listData = props.planList;
+            listData[indexActive] = data;
+            props.setPlanList([...listData]);
+            if(type == "create-new"){
+                alert("Berhasil add!")
+            }else{
+                alert("Berhasil save!")
+            }
+            props.setDataActive(null);
+            props.setAddNewPlan(false);
+        }
     }
+
+    const editData = () => {
+        props.setEdit(true);
+    }
+
+    const deleteData = (indexActive) => {
+        const updatedPlanList = [...props.planList];
+        updatedPlanList.splice(indexActive, 1);
+        props.setPlanList(updatedPlanList);
+        props.setDataActive(null);
+    }
+
     return (
         <>
             <div className="right w-2/3 h-full bg-snow rounded-2xl">
@@ -43,7 +86,7 @@ export default function Right(props) {
                             <input className="w-9/12 bg-white border border-1 border-black h-full rounded-lg px-4 text-2xl" type="text" name="" id="plan-name" placeholder="Plan Name"/>
                             <div className="w-3/12 h-full flex justify-end items-center">
                                 <button className="w-1/2 bg-indigo-500 h-3/4 rounded-lg text-white font-semibold" onClick={() => {
-                                    saveData("create-new", props.indexActive);
+                                    saveData("create-new", props.planList.length);
                                 }}>Save</button>
                             </div>
                         </div>
@@ -84,7 +127,7 @@ export default function Right(props) {
                                     data.status == 0 ? (
                                         <Menu key={Math.floor(Math.random() * 100000)} funct={props.funct} data={data} menu={props.menu} setMenu={props.setMenu} index={index} deleteMenu={props.deleteMenu} />
                                     ) : (
-                                        <Menu key={Math.floor(Math.random() * 100000)} funct={props.funct} data={data} menu={props.menu} setMenu={props.setMenu} index={index} deleteMenu={props.deleteMenu} />
+                                        <MenuExist key={Math.floor(Math.random() * 100000)} funct={props.funct} data={data} menu={props.menu} setMenu={props.setMenu} index={index} deleteMenu={props.deleteMenu} />
                                     )
                                 ))
                             ) : (
@@ -92,6 +135,40 @@ export default function Right(props) {
                             )}
                         </div>                       
                     </div>
+                ) : !props.edit ? (
+                        <div className="data-active w-full h-full py-10 px-16 flex flex-col gap-y-5">
+                            <div className="flex justify-center items-center w-full h-10">
+                                <h1 className="text-4xl font-bold w-1/2">{props.dataActive.nama}</h1>
+                                <div className="w-1/2 flex justify-end gap-x-5 h-full">
+                                    <button className="w-2/6 bg-red-500 h-full rounded-xl text-white font-semibold" onClick={() => {
+                                        deleteData(props.indexActive);
+                                    }}>Delete</button>
+                                    <button className="w-2/6 bg-indigo-500 h-full rounded-xl text-white font-semibold" onClick={() => {
+                                        editData();
+                                    }}>Edit</button>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-y-4">
+                                <div className="flex justify-start items-center gap-x-2">
+                                    <h1 className="text-xl font-semibold">Difficulty : </h1>
+                                    {props.dataActive.difficulty == "Beginner" ? (
+                                        <p className="bg-green-500 w-32 py-0.5 text-center rounded-xl">{props.dataActive.difficulty}</p>
+                                    ) : props.dataActive.difficulty == "Intermediate" ? (
+                                        <p className="bg-yellow-300 w-40 py-0.5 text-center rounded-xl">{props.dataActive.difficulty}</p>
+                                    ) : (
+                                        <p className="bg-red-500 w-28 py-0.5 text-center rounded-xl">{props.dataActive.difficulty}</p>
+                                    )}
+                                </div>
+                                <h1 className="text-xl font-semibold">Duration Range : <span className="font-normal">{props.dataActive.from} to {props.dataActive.to} minutes</span> </h1>
+                                <h1 className="text-xl font-semibold">Gender : <span className="font-normal">{props.dataActive.gender}</span></h1>
+                                <h1 className="text-xl font-semibold">Menu : </h1>
+                                <div className="flex flex-col gap-y-3">
+                                    {props.dataActive.menu.map((item, index) => (
+                                        <Viewonly key={index} item={item}/>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                 ) : (
                     <div className="data-active w-full h-full py-8 px-12 flex flex-col gap-y-4">
                         <div className="w-full h-10 flex align-center justify-start">
@@ -142,7 +219,7 @@ export default function Right(props) {
                                 ) : (
                                     <option value="Female">Female</option>
                                 )}
-                                {props.dataActive.gender == "Female" ? (
+                                {props.dataActive.gender == "Male" ? (
                                     <option value="Male" selected>Male</option>
                                 ) : (
                                     <option value="Male">Male</option>
@@ -169,7 +246,7 @@ export default function Right(props) {
                             ) : (
                                 <div></div>
                             )}
-                        </div>                       
+                        </div>                
                     </div>
                 )}
             </div>

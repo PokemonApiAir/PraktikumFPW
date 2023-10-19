@@ -2,7 +2,7 @@ export default function Menu(props) {
     const itemData = {...props.data} //Data 1 Menu
     return (
         <>
-            <div className="data w-full flex items-center gap-x-2">
+            <div className="p data w-full flex items-center gap-x-2">
                 <input id="set" type="text" className="w-12 h-9 py-0.5 rounded-lg border border-black text-center" placeholder="1" defaultValue={itemData.set}/>
                 <span>Set</span>
                 {itemData.workout_name == "Menu Name" ? (
@@ -16,6 +16,11 @@ export default function Menu(props) {
                         <option value="mins" selected>mins</option>
                     ) : (
                         <option value="mins">mins</option>
+                    )}
+                    {itemData.time == "secs" ? (
+                        <option value="secs" selected>secs</option>
+                    ) : (
+                        <option value="secs">secs</option>
                     )}
                     {itemData.time == "x" ? (
                         <option value="x" selected>x</option>

@@ -12,6 +12,7 @@ export default function Left(props) {
                     <div className="w-full h-full py-8 px-8">
                         {itemData.map((data, idx) => (
                             <div key={idx} onClick={() => {
+                                props.setEdit(false);
                                 props.setMenu([...data.menu]);
                                 props.setIndexActive(idx);
                                 props.setDataActive(data);
@@ -34,9 +35,9 @@ export default function Left(props) {
                                     </div>
                                     <div className="flex items-center justify-center w-12">
                                         {data.gender == "Intersex" ? (
-                                            <img className="w-12 h-12" src={Intersex} alt="" />
+                                            <img className="w-8 h-12" src={Intersex} alt="" />
                                         ) : data.gender == "Male" ? (
-                                            <img className="w-12 h-12" src={Male} alt="" />
+                                            <img className="w-10 h-12" src={Male} alt="" />
                                         ) : (
                                             <img className="w-8 h-12" src={Female} alt="" />
                                         )}
@@ -51,6 +52,18 @@ export default function Left(props) {
                 </div>
                 <button className="w-full h-1/7 bg-indigo-500 rounded-2xl" onClick={() => {
                     props.setAddNewPlan(true);
+                    props.setDataActive(null);
+                    props.setMenu([
+                        {
+                            id: 0,
+                            set: 1,
+                            workout_name: "Menu Name",
+                            long: 10,
+                            time: "mins",
+                            status: 0
+                        }
+                    ]);
+                    props.setEdit(false);
                 }}>
                     <span className="text-2xl text-white font-bold">+ Add new Plan</span>
                 </button>

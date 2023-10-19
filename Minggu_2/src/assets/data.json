@@ -1,0 +1,149 @@
+[
+    {
+        "nama": "Kardio and Power",
+        "difficulty": "Intermediate",
+        "from": 25,
+        "to": 30,
+        "gender": "Female",
+        "menu": [
+            {
+                "id": 0,
+                "set": 1,
+                "workout_name": "Lari",
+                "long": 10,
+                "time": "mins",
+                "status": 1
+            },
+            {
+                "id": 1,
+                "set": 4,
+                "workout_name": "Bench Press",
+                "long": 8,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 2,
+                "set": 3,
+                "workout_name": "Dumbell Flyes",
+                "long": 10,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 3,
+                "set": 3,
+                "workout_name": "Tricep Dips",
+                "long": 10,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 4,
+                "set": 1,
+                "workout_name": "Kardio Interval Training",
+                "long": 15,
+                "time": "mins",
+                "status": 1
+            }
+        ]   
+    },
+    {
+        "nama": "Upper Body Warm Up",
+        "difficulty": "Beginner",
+        "from": 10,
+        "to": 15,
+        "gender": "Intersex",
+        "menu": [
+            {
+                "id": 0,
+                "set": 1,
+                "workout_name": "Fast-Paced Walk",
+                "long": 3,
+                "time": "mins",
+                "status": 1
+            },
+            {
+                "id": 1,
+                "set": 1,
+                "workout_name": "Push Up",
+                "long": 15,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 2,
+                "set": 1,
+                "workout_name": "Arm Circle (Clockwise)",
+                "long": 15,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 3,
+                "set": 1,
+                "workout_name": "Arm Circle (Counter-Clockwise)",
+                "long": 15,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 4,
+                "set": 1,
+                "workout_name": "Sit Up",
+                "long": 15,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 5,
+                "set": 1,
+                "workout_name": "Plank",
+                "long": 30,
+                "time": "secs",
+                "status": 1
+            }
+        ]   
+    },
+    {
+        "nama": "Angkat Beban (Punggung dan Bahu)",
+        "difficulty": "Hard",
+        "from": 50,
+        "to": 60,
+        "gender": "Male",
+        "menu": [
+            {
+                "id": 0,
+                "set": 4,
+                "workout_name": "Deadlift",
+                "long": 6,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 1,
+                "set": 3,
+                "workout_name": "Pull Up",
+                "long": 10,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 2,
+                "set": 3,
+                "workout_name": "Bent Over Rows",
+                "long": 10,
+                "time": "x",
+                "status": 1
+            },
+            {
+                "id": 3,
+                "set": 3,
+                "workout_name": "Plank",
+                "long": 60,
+                "time": "mins",
+                "status": 1
+            }
+        ]   
+    }
+]
