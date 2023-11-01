@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-hehe{
+  background-color: rgb(172, 221, 224);
+}
+
+.bg-button-cl{
+  background-color: rgb(243, 116, 116);
+}
+
+.bg-button-add{
+  background-color: rgb(116, 159, 243);
+}
+
+.bg-button-generate{
+  background-color: rgb(90, 164, 88);
+}
+
+.bg-line{
+  background-color: rgb(205, 220, 248);
+}
+
+.bg-text-view{
+  background-color: rgb(116, 157, 238);
+}
+
+.text-blue{
+  color: rgb(53, 119, 244);
+}
+
+.text-light-blue{
+  color: rgb(135, 170, 240);
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
