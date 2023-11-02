@@ -1,12 +1,40 @@
 import Education from './education';
 
-export default function ViewForm({data, register, handleSubmit, errors, inputStatus, setInputStatus, experiences, setExperiences, generate, statusChange, addField, deleteField, changeTitle, changePlace, changeDesc, changeStart, changeEnd}) {
+export default function ViewForm({reset, data, setData, register, handleSubmit, errors, inputStatus, setInputStatus, experiences, setExperiences, generate, statusChange, addField, deleteField, changeTitle, changePlace, changeDesc, changeStart, changeEnd}) {
+    const handleClear = () => {
+        reset({
+            nama: "",
+            title: "",
+            phone_number: "",
+            email: "",
+            domicile: "",
+            linkedin: "",
+            photo_url: "",
+            about: "",
+            place_0: "",
+            start_0: "",
+            end_0: "",
+            place_1: "",
+            start_1: "",
+            end_1: "",
+            place_2: "",
+            start_2: "",
+            end_2: "",
+            place_3: "",
+            start_3: "",
+            end_3: ""
+        });
+
+        setInputStatus([false, false, false, false]);
+        setData(null);
+    };
+
     return (
         <>
             <div className='w-full h-full flex flex-col justify-center items-center bg-hehe py-12 px-6'>
                 <div className='w-full flex justify-center'>
                     <div className='w-full justify-start absolute ps-24'>
-                        <button className='text-white font-semibold absolute bg-button-cl rounded-lg h-12 w-32'>Clear</button>
+                        <button onClick={handleClear} className='text-white font-semibold absolute bg-button-cl rounded-lg h-12 w-32'>Clear</button>
                     </div>
                     <h1 className='text-3xl font-bold'>CV Maker</h1>
                 </div>

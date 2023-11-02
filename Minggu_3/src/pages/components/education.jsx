@@ -17,7 +17,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                     {inputStatus[0] ? (
                         <div className='w-full flex justify-center items-center h-16 gap-x-6'>
                             <div className="h-full w-8/12 flex flex-col">
-                                <input disabled="" className='text-0 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_0", {
+                                <input disabled="" className='text-0 border border-black rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_0", {
                                     required: {
                                         value: inputStatus[0] ? true : false,
                                         message: "Field Highschool wajib diisi"
@@ -26,7 +26,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[0] ? errors?.place_0?.message : null}</span>
                             </div>
                             <div className="h-full w-2/12 flex flex-col">
-                                <input disabled="" className='text-0 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_0", {
+                                <input disabled="" className='text-0 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_0", {
                                     required: {
                                         value: inputStatus[0] ? true : false,
                                         message: "Field Start wajib diisi"
@@ -35,7 +35,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[0] ? errors?.start_0?.message : null}</span>
                             </div>
                             <div className='h-full w-2/12 flex flex-col'>
-                                <input disabled="" className='text-0 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_0", {
+                                <input disabled="" className='text-0 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_0", {
                                     required: {
                                         value: inputStatus[0] ? true : false,
                                         message: "Field End wajib diisi"
@@ -90,7 +90,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                     {inputStatus[1] ? (
                         <div className='w-full flex justify-center items-center h-16 gap-x-6'>
                             <div className="h-full w-8/12 flex flex-col">
-                                <input disabled="" className='text-1 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_1", {
+                                <input disabled="" className='text-1 border border-black rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_1", {
                                     required: {
                                         value: inputStatus[1] ? true : false,
                                         message: "Field Highschool wajib diisi"
@@ -99,7 +99,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[1] ? errors?.place_1?.message : null}</span>
                             </div>
                             <div className="h-full w-2/12 flex flex-col">
-                                <input disabled="" className='text-1 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_1", {
+                                <input disabled="" className='text-1 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_1", {
                                     required: {
                                         value: inputStatus[1] ? true : false,
                                         message: "Field Start wajib diisi"
@@ -108,7 +108,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[1] ? errors?.start_1?.message : null}</span>
                             </div>
                             <div className='h-full w-2/12 flex flex-col'>
-                                <input disabled="" className='text-1 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_1", {
+                                <input disabled="" className='text-1 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_1", {
                                     required: {
                                         value: inputStatus[1] ? true : false,
                                         message: "Field End wajib diisi"
@@ -163,7 +163,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                     {inputStatus[2] ? (
                         <div className='w-full flex justify-center items-center h-16 gap-x-6'>
                             <div className="h-full w-8/12 flex flex-col">
-                                <input disabled="" className='text-2 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_2", {
+                                <input disabled="" className='text-2 border border-black rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_2", {
                                     required: {
                                         value: inputStatus[2] ? true : false,
                                         message: "Field Highschool wajib diisi"
@@ -172,7 +172,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[2] ? errors?.place_2?.message : null}</span>
                             </div>
                             <div className="h-full w-2/12 flex flex-col">
-                                <input disabled="" className='text-2 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_2", {
+                                <input disabled="" className='text-2 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_2", {
                                     required: {
                                         value: inputStatus[2] ? true : false,
                                         message: "Field Start wajib diisi"
@@ -181,7 +181,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[2] ? errors?.start_2?.message : null}</span>
                             </div>
                             <div className='h-full w-2/12 flex flex-col'>
-                                <input disabled="" className='text-2 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_2", {
+                                <input disabled="" className='text-2 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_2", {
                                     required: {
                                         value: inputStatus[2] ? true : false,
                                         message: "Field End wajib diisi"
@@ -236,7 +236,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                     {inputStatus[3] ? (
                         <div className='w-full flex justify-center items-center h-16 gap-x-6'>
                             <div className="h-full w-8/12 flex flex-col">
-                                <input disabled="" className='text-3 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_3", {
+                                <input disabled="" className='text-3 border border-black rounded-xl h-12 w-full ps-4 text-2xl' {...register("place_3", {
                                     required: {
                                         value: inputStatus[3] ? true : false,
                                         message: "Field Highschool wajib diisi"
@@ -245,7 +245,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[3] ? errors?.place_3?.message : null}</span>
                             </div>
                             <div className="h-full w-2/12 flex flex-col">
-                                <input disabled="" className='text-3 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_3", {
+                                <input disabled="" className='text-3 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='Start' type="text" {...register("start_3", {
                                     required: {
                                         value: inputStatus[3] ? true : false,
                                         message: "Field Start wajib diisi"
@@ -254,7 +254,7 @@ export default function Education({data, register, inputStatus, statusChange, er
                                 <span className='text-red-600 h-4'>{inputStatus[3] ? errors?.start_3?.message : null}</span>
                             </div>
                             <div className='h-full w-2/12 flex flex-col'>
-                                <input disabled="" className='text-3 border border-gray-300 rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_3", {
+                                <input disabled="" className='text-3 border border-black rounded-xl h-12 w-full ps-4 text-2xl' placeholder='End' type="text" {...register("end_3", {
                                     required: {
                                         value: inputStatus[3] ? true : false,
                                         message: "Field End wajib diisi"

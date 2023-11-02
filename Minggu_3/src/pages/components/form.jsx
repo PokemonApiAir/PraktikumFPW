@@ -15,9 +15,8 @@ export default function Form({inputStatus, setInputStatus, data, setData, setSta
             end: ""
         }
     ])
-    console.log(data);
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
     const generate = data => {
         const generate_data = {
@@ -193,9 +192,9 @@ export default function Form({inputStatus, setInputStatus, data, setData, setSta
     return (
         <>
             {data ? (
-                <ViewForm data={data} register={register} handleSubmit={handleSubmit} errors={errors} inputStatus={inputStatus} setInputStatus={setInputStatus} experiences={experiences} setExperiences={setExperiences} generate={generate} statusChange={statusChange} addField={addField} deleteField={deleteField} changeTitle={changeTitle} changePlace={changePlace} changeDesc={changeDesc} changeStart={changeStart} changeEnd={changeEnd} />
+                <ViewForm reset={reset} data={data} setData={setData} register={register} handleSubmit={handleSubmit} errors={errors} inputStatus={inputStatus} setInputStatus={setInputStatus} experiences={experiences} setExperiences={setExperiences} generate={generate} statusChange={statusChange} addField={addField} deleteField={deleteField} changeTitle={changeTitle} changePlace={changePlace} changeDesc={changeDesc} changeStart={changeStart} changeEnd={changeEnd} />
             ) : (
-                <BlankForm register={register} handleSubmit={handleSubmit} errors={errors} inputStatus={inputStatus} setInputStatus={setInputStatus} experiences={experiences} setExperiences={setExperiences} generate={generate} statusChange={statusChange} addField={addField} deleteField={deleteField} changeTitle={changeTitle} changePlace={changePlace} changeDesc={changeDesc} changeStart={changeStart} changeEnd={changeEnd} />
+                <BlankForm reset={reset} setData={setData} register={register} handleSubmit={handleSubmit} errors={errors} inputStatus={inputStatus} setInputStatus={setInputStatus} experiences={experiences} setExperiences={setExperiences} generate={generate} statusChange={statusChange} addField={addField} deleteField={deleteField} changeTitle={changeTitle} changePlace={changePlace} changeDesc={changeDesc} changeStart={changeStart} changeEnd={changeEnd} />
             )}
             
         </>
