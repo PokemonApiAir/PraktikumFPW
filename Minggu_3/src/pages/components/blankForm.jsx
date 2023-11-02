@@ -124,9 +124,16 @@ export default function BlankForm({reset, register, handleSubmit, errors, inputS
                                 value: true,
                                 message: "Aboout Myself wajib diisi"
                             },
-                            maxLength: {
-                                value: 100,
-                                message: "Panjang tidak boleh lebih dari 100"
+                            validate: (value) => {
+                                // Menghitung jumlah kata bukan huruf
+                                const words = value.match(/\b\w+\b/g);
+                                const wordCount = words ? words.length : 0;
+                          
+                                if (wordCount > 100) {
+                                  return "Panjang tidak boleh lebih dari 100 kata";
+                                }
+                          
+                                return true;
                             }
                         })} rows="6"></textarea>
                         <span className='text-red-600 h-4'>{errors?.about?.message}</span>
