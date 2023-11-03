@@ -2,8 +2,11 @@ import Linkedin from '../../assets/linkedin.png'
 
 export default function View({data, setState}) {
     const printPage = () => {
-        const element = document.getElementById("print");
+        const element = document.getElementById("print").innerHTML;
+        const ori = document.body.innerHTML;
+        document.body.innerHTML = element;
         window.print();
+        document.body.innerHTML = ori;
     }
     
     const toForm = () => {
@@ -17,12 +20,12 @@ export default function View({data, setState}) {
                     <h1 className='text-3xl font-bold'>CV Maker</h1>
                     <button onClick={printPage} className='text-white font-semibold bg-button-add rounded-lg h-12 w-32'>Print</button>
                 </div>
-                <div id="print" className="w-9/12 bg-white flex flex-col h-full rounded-2xl py-40 px-16">
+                <div id="print" className="w-7/12 bg-white flex flex-col h-full rounded-2xl py-40 px-16">
                     <div className="w-full h-72 flex justify-center items-center">
                         <div className="w-5/12 flex justify-center items-center">
                             <img className='h-72 w-72 rounded-full border-double border-8 border-sky-500' src={data.photo_url} alt="" />
                         </div>
-                        <div className="w-9/12">
+                        <div className="w-7/12">
                             <div className="flex w-full justify-start items-end gap-x-6">
                                 <h1 className="text-4xl font-semibold text-blue">{data.nama}</h1>
                                 <p className="text-2xl font-medium text-light-blue">{data.title}</p>
@@ -47,7 +50,7 @@ export default function View({data, setState}) {
                         <div className='w-1/2 flex flex-col'>
                             <div className='w-full flex flex-col'>
                                 <h1 className='h-12 w-28 bg-text-view font-semibold text-lg text-white flex justify-center items-center'>About</h1>
-                                <p className='w-full py-4 text-lg text-justify pe-8'>{data.about}</p>
+                                <p className='w-8/12 py-4 text-lg text-justify pe-8'>{data.about}</p>
                             </div>
                             <div className='w-full flex flex-col'>
                                 <h1 className='h-12 w-36 bg-text-view font-semibold text-lg text-white flex justify-center items-center'>Education</h1>
