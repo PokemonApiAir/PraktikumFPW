@@ -7,7 +7,7 @@ import Wishlist from './components/Wishlist'
 
 export default function Dashboard() {
     const [wishlist, setWishlist] = useState([]);
-    const [route, setRoute] = useState("catalog");
+    const [route, setRoute] = useState("home");
 
     return (
         <>

@@ -51,14 +51,14 @@ export default function Wishlist({wishlist, setWishlist}) {
                             {list && list.map((item, idx) => (
                                 <div key={idx} className='w-full h-16 bg-catalog-card flex items-center'>
                                     <img className='w-3/12 h-full' src={item.thumb} alt="" />
-                                    <div className='w-8/12 h-full py-1 ps-2'>
+                                    <div className='w-6/12 h-full py-1 ps-2'>
                                         <p className='text-white text-sm pt-1.5'>{item.title}</p>
                                         <p className='text-release text-2xs pt-2'>release on {dateToString(item.releaseDate)}</p>
                                     </div>
-                                    <div className='1/12'>
+                                    <div className='w-3/12 flex justify-end h-full me-6'>
                                         <button onClick={() => {
                                             removeFromWishlist(item.dealID);
-                                        }} className="text-sm hover:opacity-50">❤️</button>
+                                        }} className="text-2xs text-red-600 hover:opacity-50 hover:underline">REMOVE</button>
                                     </div>
                                 </div>
                             ))}

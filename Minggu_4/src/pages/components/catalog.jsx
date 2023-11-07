@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios'
 
+import CatalogCard from './catalogCard';
+
 export default function Catalog({wishlist, setWishlist}) {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const [isLoading, setIsLoading] = useState(false);
@@ -88,36 +90,7 @@ export default function Catalog({wishlist, setWishlist}) {
                         </form>
                         <div className="w-full h-full flex flex-col gap-y-1">
                             {catalog && catalog.map((item, idx) => (
-                                <div key={idx} className='w-full h-16 bg-catalog-card flex items-center'>
-                                    <img className='w-3/12 h-full' src={item.thumb} alt="" />
-                                    <div className='w-8/12 h-full py-1 ps-2'>
-                                        <p className='text-white text-sm'>{item.title + " (" + item.metacriticScore +  ")"}</p>
-                                        <div className='flex'>
-                                            {item.isOnSale == "1" ? (
-                                                <p className="w-10 h-5 text-normal text-xs bg-normal line-through flex justify-center items-center">{item.normalPrice}</p>
-                                            ) : (
-                                                <p className="w-20 h-5 text-normal text-xs bg-normal flex justify-center items-center">{item.normalPrice}</p>
-                                            )}
-                                            {item.isOnSale == "1" ? (
-                                                <p className="w-10 h-5 text-sale text-xs bg-sale flex justify-center items-center">{item.salePrice}</p>
-                                            ) : (
-                                                <div></div>
-                                            )}
-                                        </div>
-                                        <p className='text-release text-2xs pt-1'>release on {dateToString(item.releaseDate)}</p>
-                                    </div>
-                                    <div className='1/12'>
-                                        {findId(item.dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(item.dealID);
-                                            }} className="text-sm hover:opacity-50">❤️</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(item.dealID);
-                                            }} className="text-sm hover:opacity-50">🖤</button>
-                                        )}
-                                    </div>
-                                </div>
+                                <CatalogCard key={idx} item={item} dateToString={dateToString} findId={findId} removeFromWishlist={removeFromWishlist} addToWishlist={addToWishlist}/>
                             ))}
                         </div>
                         <div className='w-full h-8 flex justify-center items-center mt-6'>
