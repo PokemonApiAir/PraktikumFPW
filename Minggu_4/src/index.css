@@ -1,4 +1,65 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-navbar{
+  background-color: rgb(23, 29, 37);
+}
+
+.bg-content{
+  background-color: rgb(24, 59, 79);
+}
+
+.bg-card{
+  background-color: rgb(26, 91, 126);
+}
+
+.text-sale{
+  color: rgb(190, 238, 17);
+}
+
+.bg-sale{
+  background-color: rgb(76, 107, 34);
+}
+
+.text-normal{
+  color: rgb(88, 120, 132);
+}
+
+.bg-normal{
+  background-color: rgb(23, 49, 67);
+}
+
+.bg-new-release{
+  background-color: rgb(16, 26, 35);
+}
+
+.bg-info{
+  background-color: rgb(57, 65, 73);
+}
+
+.bg-search{
+  background-color: rgb(49, 98, 130);
+}
+
+.bg-icon-search{
+  background-color: rgb(83, 154, 197);
+}
+
+.bg-catalog-card{
+  background-color: rgb(22, 32, 45);
+}
+
+.text-release{
+  color: rgb(70, 100, 130);
+}
+
+.text-2xs{
+  font-size: 10px;
+  line-height: 12px;
+}
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,4 +127,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

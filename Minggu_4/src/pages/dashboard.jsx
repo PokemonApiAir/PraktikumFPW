@@ -1,32 +1,21 @@
 import { useState, useEffect } from "react";
-import axios from 'axios';
+
+import Navbar from './components/navbar'
+import Home from './components/home'
+import Catalog from './components/catalog'
+import Wishlist from './components/Wishlist'
 
 export default function Dashboard() {
-    const [isLoading, setIsLoading] = useState(false)
-
-    const fetchData = async() => {
-        setIsLoading(true);
-
-        const randQuotes = await axios.get(`https://quote-garden.onrender.com/api/v3/quotes/random`);
-        const allAuthors = await axios.get(`https://quote-garden.onrender.com/api/v3/authors`);
-        const allGenres = await axios.get(`https://quote-garden.onrender.com/api/v3/genres`);
-        const getQuotes = await axios.get(`https://quote-garden.onrender.com/api/v3/quotes`);
-        console.log("Random Quotes : ", randQuotes.data.data);
-        console.log("All Authors : ", allAuthors.data.data);
-        console.log("All Genres : ", allGenres.data.data);
-        console.log("Quotes : ", getQuotes.data.data);
-
-        setIsLoading(false);
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, [])
+    const [wishlist, setWishlist] = useState([]);
+    const [route, setRoute] = useState("catalog");
 
     return (
         <>
-            <div>
-                {isLoading && <h1>Loading...</h1>}
+            <div className="min-h-screen h-full w-full flex flex-col justify-start items-center bg-content pb-16">
+                <Navbar setRoute={setRoute}/>
+                {route == "home" && <Home wishlist={wishlist} setWishlist={setWishlist}/>}
+                {route == "catalog" && <Catalog wishlist={wishlist} setWishlist={setWishlist}/>}
+                {route == "wishlist" && <Wishlist wishlist={wishlist} setWishlist={setWishlist}/>}
             </div>
         </>
     )
