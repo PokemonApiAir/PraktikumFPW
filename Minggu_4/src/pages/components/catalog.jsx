@@ -99,7 +99,7 @@ export default function Catalog({wishlist, setWishlist}) {
                                     <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </button>
-                            <h1 className='bg-slate-300 w-8 h-full text-lg text-center opacity-50'>{page}</h1>
+                            <h1 className='bg-slate-300 w-8 h-full text-lg text-center opacity-50'>{page + 1}</h1>
                             <button onClick={next} className='bg-slate-300 h-full w-8 rounded-r-lg opacity-50 hover:opacity-25'>
                                 <svg className='h-full w-full' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
