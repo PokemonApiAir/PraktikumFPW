@@ -79,8 +79,8 @@ export default function Catalog({wishlist, setWishlist}) {
                         <input {...register('search')} className="h-full bg-search rounded-l text-white text-sm ps-1" type="text" placeholder="Search" id="" />
                         <button type='submit' className="h-full w-5 bg-icon-search rounded-r text-xs">🔍</button>
                     </form>
-                    <div className='w-full h-full flex justify-center items-center'>
-                        <h1 className="text-2xl text-slate-400 mt-52">Loading...</h1>
+                    <div className='w-full h-full flex justify-center items-center mt-64 loader'>
+                        <div className="tile"></div>
                     </div>
                 </div>}
                 {!isLoading && catalog.length > 0 ?(

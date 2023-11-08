@@ -87,8 +87,8 @@ export default function Home({wishlist, setWishlist}) {
         <>
             <div className="w-6/12 h-full flex justify-center items-center">
                 {isLoading && 
-                <div className="w-screen h-full flex justify-center items-center">
-                    <h1 className="text-2xl text-slate-400 mt-52">Loading...</h1>
+                <div className="w-full h-full flex justify-center mt-64 loader">
+                    <div className="tile"></div>
                 </div>}
                 {!isLoading && 
                 <div className="h-full w-full flex flex-col">
@@ -142,7 +142,7 @@ export default function Home({wishlist, setWishlist}) {
                         </div>
                     </div>}
                     {bestData &&
-                    <div id="best" className="w-full h-64 flex flex-col my-4">
+                    <div id="best" className="w-full h-72 flex flex-col my-4">
                         <h1 className="text-xl text-slate-400 my-1">Best Offers</h1>
                         <div className="w-full h-full flex gap-x-4">
                             <div className="w-1/3 h-full bg-card">
@@ -175,8 +175,9 @@ export default function Home({wishlist, setWishlist}) {
                             </div>
                             <div className="w-1/3 h-full flex flex-col gap-y-2">
                                 <div className="w-full h-1/2 bg-card relative flex">
-                                    <div className="w-full absolute">
+                                    <div className="w-full absolute flex flex-col">
                                         <img className="w-full" src={bestData[1].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[1].title}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(bestData[1].dealID) == true ? (
@@ -205,6 +206,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <div className="w-full h-1/2 bg-card relative">
                                     <div className="w-full absolute">
                                         <img className="w-full" src={bestData[2].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[2].title}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(bestData[2].dealID) == true ? (
@@ -235,6 +237,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <div className="w-full h-1/2 bg-card relative flex">
                                     <div className="w-full absolute">
                                         <img className="w-full" src={bestData[3].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[3].title}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(bestData[3].dealID) == true ? (
@@ -263,6 +266,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <div className="w-full h-1/2 bg-card relative">
                                     <div className="w-full absolute">
                                         <img className="w-full" src={bestData[4].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[4].title}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(bestData[4].dealID) == true ? (
@@ -292,13 +296,14 @@ export default function Home({wishlist, setWishlist}) {
                         </div>
                     </div>}
                     {metacriticData &&
-                    <div id="best" className="w-full h-64 flex flex-col my-4">
+                    <div id="best" className="w-full h-72 flex flex-col my-4">
                         <h1 className="text-xl text-slate-400 my-1 text-end">Best Metacritic Score</h1>
                         <div className="w-full h-full flex gap-x-4">
                             <div className="w-1/3 h-full flex flex-col gap-y-2">
                                 <div className="w-full h-1/2 bg-card relative flex">
                                     <div className="w-full absolute">
                                         <img className="w-full" src={metacriticData[1].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[1].title + " (" + metacriticData[1].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(metacriticData[1].dealID) == true ? (
@@ -327,6 +332,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <div className="w-full h-1/2 bg-card relative">
                                     <div className="w-full absolute">
                                         <img className="w-full" src={metacriticData[2].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[2].title + " (" + metacriticData[2].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(metacriticData[2].dealID) == true ? (
@@ -357,6 +363,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <div className="w-full h-1/2 bg-card relative flex">
                                     <div className="w-full absolute">
                                         <img className="w-full" src={metacriticData[3].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[3].title + " (" + metacriticData[3].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(metacriticData[3].dealID) == true ? (
@@ -385,6 +392,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <div className="w-full h-1/2 bg-card relative">
                                     <div className="w-full absolute">
                                         <img className="w-full" src={metacriticData[4].thumb}/>
+                                        <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[4].title + " (" + metacriticData[4].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
                                         {findId(metacriticData[4].dealID) == true ? (
@@ -415,7 +423,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <img className="w-full" src={metacriticData[0].thumb}/>
                                 <div className="w-full h-full flex flex-col items-start py-4 px-3 gap-y-1">
                                     <p className="text-white text-sm font-medium">{metacriticData[0].title}</p>
-                                    <p className="text-white text-xs">Score : <span className="font-medium">{bestData[0].dealRating}</span></p>
+                                    <p className="text-white text-xs">Score : <span className="font-medium">{metacriticData[0].metacriticScore}</span></p>
                                     <div className="w-full flex pt-3">
                                         {metacriticData[0].isOnSale == "1" ? (
                                             <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{metacriticData[0].normalPrice}</p>

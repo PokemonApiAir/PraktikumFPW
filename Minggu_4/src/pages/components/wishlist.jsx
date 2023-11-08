@@ -42,8 +42,8 @@ export default function Wishlist({wishlist, setWishlist}) {
         <>
             <div className="w-6/12 h-full flex justify-center items-center">
                 {isLoading && 
-                <div className="w-screen h-full flex justify-center items-center">
-                    <h1 className="text-2xl text-slate-400 mt-52">Loading...</h1>
+                <div className="w-full h-full flex justify-center mt-64 loader">
+                    <div className="tile"></div>
                 </div>}
                 {!isLoading && list.length > 0 ? (
                     <div className='w-full h-full flex mt-2'>
@@ -66,7 +66,7 @@ export default function Wishlist({wishlist, setWishlist}) {
                     </div>
                 ) : !isLoading && list.length === 0 ? (
                     <div className='w-full h-full flex justify-center items-center'>
-                        <h1 className="text-2xl text-slate-400 mt-52">Add Wishlist First!!</h1>
+                        <h1 className="text-2xl text-slate-400 mt-64">Add Wishlist First!!</h1>
                     </div>
                 ) : (
                     <div></div>
