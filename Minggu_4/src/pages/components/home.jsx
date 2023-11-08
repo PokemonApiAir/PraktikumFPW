@@ -407,7 +407,7 @@ export default function Home({wishlist, setWishlist}) {
                                 <img className="w-full" src={metacriticData[0].thumb}/>
                                 <div className="w-full h-full flex flex-col items-start py-4 px-3 gap-y-1">
                                     <p className="text-white text-sm font-medium">{metacriticData[0].title}</p>
-                                    <p className="text-white text-xs">Rating : <span className="font-medium">{bestData[0].dealRating}</span></p>
+                                    <p className="text-white text-xs">Score : <span className="font-medium">{bestData[0].dealRating}</span></p>
                                     <div className="w-full flex pt-3">
                                         {metacriticData[0].isOnSale == "1" ? (
                                             <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{metacriticData[0].normalPrice}</p>

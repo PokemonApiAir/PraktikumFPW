@@ -12,6 +12,7 @@ export default function Catalog({wishlist, setWishlist}) {
     const [page, setPage] = useState(0);
 
     const submit = data => {
+        setPage(0);
         setSearch(data.search);
     }
 
