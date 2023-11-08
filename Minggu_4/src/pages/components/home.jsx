@@ -142,44 +142,48 @@ export default function Home({wishlist, setWishlist}) {
                         </div>
                     </div>}
                     {bestData &&
-                    <div id="best" className="w-full h-72 flex flex-col my-4">
+                    <div id="best" className="w-full h-80 flex flex-col my-4">
                         <h1 className="text-xl text-slate-400 my-1">Best Offers</h1>
                         <div className="w-full h-full flex gap-x-4">
                             <div className="w-1/3 h-full bg-card">
                                 <img className="w-full" src={bestData[0].thumb}/>
                                 <div className="w-full h-full flex flex-col items-start py-4 px-3 gap-y-1">
-                                    <p className="text-white text-sm font-medium">{bestData[0].title}</p>
-                                    <p className="text-white text-xs">Rating : <span className="font-medium">{bestData[0].dealRating}</span></p>
-                                    <div className="w-full flex pt-3">
-                                        {bestData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[0].normalPrice}</p>
+                                    <div className="w-full h-1/3 flex flex-col">
+                                        <p className="text-white text-base font-medium">{bestData[0].title}</p>
+                                        <p className="text-white text-sm">Rating : <span className="font-medium">{bestData[0].dealRating}</span></p>
+                                    </div>
+                                    <div className="w-full h-2/3 flex flex-col items-start gap-y-1">
+                                        <div className="w-full flex pt-3">
+                                            {bestData[0].isOnSale == "1" ? (
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[0].normalPrice}</p>
+                                            ) : (
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${bestData[0].normalPrice}</p>
+                                            )}
+                                            {bestData[0].isOnSale == "1" ? (
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${bestData[0].salePrice}</p>
+                                            ) : (
+                                                <div></div>
+                                            )}
+                                        </div>
+                                        {findId(bestData[0].dealID) == true ? (
+                                            <button onClick={() => {
+                                                removeFromWishlist(bestData[0].dealID);
+                                            }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
                                         ) : (
-                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${bestData[0].normalPrice}</p>
-                                        )}
-                                        {bestData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${bestData[0].salePrice}</p>
-                                        ) : (
-                                            <div></div>
+                                            <button onClick={() => {
+                                                addToWishlist(bestData[0].dealID);
+                                            }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
                                         )}
                                     </div>
-                                    {findId(bestData[0].dealID) == true ? (
-                                        <button onClick={() => {
-                                            removeFromWishlist(bestData[0].dealID);
-                                        }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
-                                    ) : (
-                                        <button onClick={() => {
-                                            addToWishlist(bestData[0].dealID);
-                                        }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
-                                    )}
                                 </div>
                             </div>
                             <div className="w-1/3 h-full flex flex-col gap-y-2">
                                 <div className="w-full h-1/2 bg-card relative flex">
-                                    <div className="w-full absolute flex flex-col">
+                                    <div className="w-full absolute flex flex-col mb-1">
                                         <img className="w-full" src={bestData[1].thumb}/>
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[1].title}</p>
                                     </div>
-                                    <div className="w-full h-full flex justify-start items-end">
+                                    <div className="w-full t-3 flex justify-start items-end">
                                         {findId(bestData[1].dealID) == true ? (
                                             <button onClick={() => {
                                                 removeFromWishlist(bestData[1].dealID);
@@ -296,7 +300,7 @@ export default function Home({wishlist, setWishlist}) {
                         </div>
                     </div>}
                     {metacriticData &&
-                    <div id="best" className="w-full h-72 flex flex-col my-4">
+                    <div id="best" className="w-full h-80 flex flex-col my-4">
                         <h1 className="text-xl text-slate-400 my-1 text-end">Best Metacritic Score</h1>
                         <div className="w-full h-full flex gap-x-4">
                             <div className="w-1/3 h-full flex flex-col gap-y-2">
@@ -422,29 +426,33 @@ export default function Home({wishlist, setWishlist}) {
                             <div className="w-1/3 h-full bg-card">
                                 <img className="w-full" src={metacriticData[0].thumb}/>
                                 <div className="w-full h-full flex flex-col items-start py-4 px-3 gap-y-1">
-                                    <p className="text-white text-sm font-medium">{metacriticData[0].title}</p>
-                                    <p className="text-white text-xs">Score : <span className="font-medium">{metacriticData[0].metacriticScore}</span></p>
-                                    <div className="w-full flex pt-3">
-                                        {metacriticData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[0].normalPrice}</p>
+                                    <div className="w-full h-1/3 flex flex-col">
+                                        <p className="text-white text-base font-medium">{metacriticData[0].title}</p>
+                                        <p className="text-white text-sm">Score : <span className="font-medium">{metacriticData[0].metacriticScore}</span></p>
+                                    </div>
+                                    <div className="w-full h-2/3 flex flex-col items-start gap-y-1">
+                                        <div className="w-full flex pt-3">
+                                            {metacriticData[0].isOnSale == "1" ? (
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[0].normalPrice}</p>
+                                            ) : (
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${metacriticData[0].normalPrice}</p>
+                                            )}
+                                            {metacriticData[0].isOnSale == "1" ? (
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${metacriticData[0].salePrice}</p>
+                                            ) : (
+                                                <div></div>
+                                            )}
+                                        </div>
+                                        {findId(metacriticData[0].dealID) == true ? (
+                                            <button onClick={() => {
+                                                removeFromWishlist(metacriticData[0].dealID);
+                                            }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
                                         ) : (
-                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${metacriticData[0].normalPrice}</p>
-                                        )}
-                                        {metacriticData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${metacriticData[0].salePrice}</p>
-                                        ) : (
-                                            <div></div>
+                                            <button onClick={() => {
+                                                addToWishlist(metacriticData[0].dealID);
+                                            }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
                                         )}
                                     </div>
-                                    {findId(metacriticData[0].dealID) == true ? (
-                                        <button onClick={() => {
-                                            removeFromWishlist(metacriticData[0].dealID);
-                                        }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
-                                    ) : (
-                                        <button onClick={() => {
-                                            addToWishlist(metacriticData[0].dealID);
-                                        }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
-                                    )}
                                 </div>
                             </div>
                         </div>
