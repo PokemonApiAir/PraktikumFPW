@@ -122,12 +122,12 @@ export default function Home({wishlist, setWishlist}) {
                                     <p className="w-24 text-white text-xs bg-info text-center">Now Available</p>
                                     <div className="w-full flex pt-3">
                                         {newReleaseData[idNewRelease].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{newReleaseData[idNewRelease].normalPrice}</p>
+                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${newReleaseData[idNewRelease].normalPrice}</p>
                                         ) : (
-                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{newReleaseData[idNewRelease].normalPrice}</p>
+                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${newReleaseData[idNewRelease].normalPrice}</p>
                                         )}
                                         {newReleaseData[idNewRelease].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{newReleaseData[idNewRelease].salePrice}</p>
+                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${newReleaseData[idNewRelease].salePrice}</p>
                                         ) : (
                                             <div></div>
                                         )}
@@ -152,12 +152,12 @@ export default function Home({wishlist, setWishlist}) {
                                     <p className="text-white text-xs">Rating : <span className="font-medium">{bestData[0].dealRating}</span></p>
                                     <div className="w-full flex pt-3">
                                         {bestData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{bestData[0].normalPrice}</p>
+                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[0].normalPrice}</p>
                                         ) : (
-                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{bestData[0].normalPrice}</p>
+                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${bestData[0].normalPrice}</p>
                                         )}
                                         {bestData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{bestData[0].salePrice}</p>
+                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${bestData[0].salePrice}</p>
                                         ) : (
                                             <div></div>
                                         )}
@@ -191,12 +191,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[1].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{bestData[1].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[1].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{bestData[1].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${bestData[1].normalPrice}</p>
                                             )}
                                             {bestData[1].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{bestData[1].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${bestData[1].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -220,12 +220,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[2].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{bestData[2].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[2].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{bestData[2].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${bestData[2].normalPrice}</p>
                                             )}
                                             {bestData[2].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{bestData[2].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${bestData[2].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -251,12 +251,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[3].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{bestData[3].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[3].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{bestData[3].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${bestData[3].normalPrice}</p>
                                             )}
                                             {bestData[3].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{bestData[3].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${bestData[3].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -280,12 +280,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[4].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{bestData[4].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[4].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{bestData[4].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${bestData[4].normalPrice}</p>
                                             )}
                                             {bestData[4].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{bestData[4].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${bestData[4].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -317,12 +317,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[1].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{metacriticData[1].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[1].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{metacriticData[1].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${metacriticData[1].normalPrice}</p>
                                             )}
                                             {metacriticData[1].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{metacriticData[1].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${metacriticData[1].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -346,12 +346,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[2].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{metacriticData[2].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[2].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{metacriticData[2].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${metacriticData[2].normalPrice}</p>
                                             )}
                                             {metacriticData[2].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{metacriticData[2].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${metacriticData[2].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -377,12 +377,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[3].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{metacriticData[3].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[3].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{metacriticData[3].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${metacriticData[3].normalPrice}</p>
                                             )}
                                             {metacriticData[3].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{metacriticData[3].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${metacriticData[3].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -406,12 +406,12 @@ export default function Home({wishlist, setWishlist}) {
                                         )}
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[4].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{metacriticData[4].normalPrice}</p>
+                                                <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[4].normalPrice}</p>
                                             ) : (
-                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{metacriticData[4].normalPrice}</p>
+                                                <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{$metacriticData[4].normalPrice}</p>
                                             )}
                                             {metacriticData[4].isOnSale == "1" ? (
-                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{metacriticData[4].salePrice}</p>
+                                                <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${metacriticData[4].salePrice}</p>
                                             ) : (
                                                 <div></div>
                                             )}
@@ -426,12 +426,12 @@ export default function Home({wishlist, setWishlist}) {
                                     <p className="text-white text-xs">Score : <span className="font-medium">{metacriticData[0].metacriticScore}</span></p>
                                     <div className="w-full flex pt-3">
                                         {metacriticData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{metacriticData[0].normalPrice}</p>
+                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[0].normalPrice}</p>
                                         ) : (
-                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{metacriticData[0].normalPrice}</p>
+                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">${metacriticData[0].normalPrice}</p>
                                         )}
                                         {metacriticData[0].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{metacriticData[0].salePrice}</p>
+                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">${metacriticData[0].salePrice}</p>
                                         ) : (
                                             <div></div>
                                         )}

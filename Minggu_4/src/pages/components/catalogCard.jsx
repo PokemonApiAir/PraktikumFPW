@@ -7,12 +7,12 @@ export default function CatalogCard({item, dateToString, findId, removeFromWishl
                     <p className='text-white text-sm'>{item.title + " (" + item.metacriticScore +  ")"}</p>
                     <div className='flex'>
                         {item.isOnSale == "1" ? (
-                            <p className="w-10 h-5 text-normal text-xs bg-normal line-through flex justify-center items-center">{item.normalPrice}</p>
+                            <p className="w-10 h-5 text-normal text-xs bg-normal line-through flex justify-center items-center">${item.normalPrice}</p>
                         ) : (
-                            <p className="w-20 h-5 text-normal text-xs bg-normal flex justify-center items-center">{item.normalPrice}</p>
+                            <p className="w-20 h-5 text-normal text-xs bg-normal flex justify-center items-center">${item.normalPrice}</p>
                         )}
                         {item.isOnSale == "1" ? (
-                            <p className="w-10 h-5 text-sale text-xs bg-sale flex justify-center items-center">{item.salePrice}</p>
+                            <p className="w-10 h-5 text-sale text-xs bg-sale flex justify-center items-center">${item.salePrice}</p>
                         ) : (
                             <div></div>
                         )}
