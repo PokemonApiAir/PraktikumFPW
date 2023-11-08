@@ -12,7 +12,7 @@ export default function Dashboard() {
     return (
         <>
             <div className="min-h-screen h-full w-full flex flex-col justify-start items-center bg-content pb-16">
-                <Navbar setRoute={setRoute}/>
+                <Navbar route={route} setRoute={setRoute}/>
                 {route == "home" && <Home wishlist={wishlist} setWishlist={setWishlist}/>}
                 {route == "catalog" && <Catalog wishlist={wishlist} setWishlist={setWishlist}/>}
                 {route == "wishlist" && <Wishlist wishlist={wishlist} setWishlist={setWishlist}/>}
