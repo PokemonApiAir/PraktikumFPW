@@ -39,6 +39,13 @@ export default function Home({wishlist, setWishlist}) {
         setIsLoading(false);
     }
 
+    const dateToString = (timestamp) => {
+        const date = new Date(timestamp * 1000);
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const formattedDate = date.toLocaleDateString('en-US', options);
+        return formattedDate;
+    }
+
     const findId = (idToFind) => {
         const temp = wishlist.find(id => id === idToFind);
         if (temp) {
@@ -111,15 +118,16 @@ export default function Home({wishlist, setWishlist}) {
                                     )}
                                 </div>
                                 <div className="h-1/2 flex flex-col justify-end items-start">
+                                    <p className="text-release text-2xs pb-1">Released on {dateToString(newReleaseData[idNewRelease].releaseDate)}</p>
                                     <p className="w-24 text-white text-xs bg-info text-center">Now Available</p>
                                     <div className="w-full flex pt-3">
-                                        {bestData[idNewRelease].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{bestData[idNewRelease].normalPrice}</p>
+                                        {newReleaseData[idNewRelease].isOnSale == "1" ? (
+                                            <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">{newReleaseData[idNewRelease].normalPrice}</p>
                                         ) : (
-                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{bestData[idNewRelease].normalPrice}</p>
+                                            <p className="w-28 h-6 text-normal bg-normal flex justify-center items-center">{newReleaseData[idNewRelease].normalPrice}</p>
                                         )}
-                                        {bestData[idNewRelease].isOnSale == "1" ? (
-                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{bestData[idNewRelease].salePrice}</p>
+                                        {newReleaseData[idNewRelease].isOnSale == "1" ? (
+                                            <p className="w-14 h-6 text-sale bg-sale flex justify-center items-center">{newReleaseData[idNewRelease].salePrice}</p>
                                         ) : (
                                             <div></div>
                                         )}
