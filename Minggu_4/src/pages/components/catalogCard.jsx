@@ -23,11 +23,11 @@ export default function CatalogCard({item, dateToString, findId, removeFromWishl
                     {findId(item.dealID) == true ? (
                         <button onClick={() => {
                             removeFromWishlist(item.dealID);
-                        }} className="text-sm hover:opacity-50">❤️</button>
+                        }} className="text-sm hover:opacity-50 bg-slate-300 rounded py-1 px-1">❤️</button>
                     ) : (
                         <button onClick={() => {
                             addToWishlist(item.dealID);
-                        }} className="text-sm hover:opacity-50">🖤</button>
+                        }} className="text-sm hover:opacity-50 bg-slate-400 rounded py-1 px-1">🖤</button>
                     )}
                 </div>
             </div>
