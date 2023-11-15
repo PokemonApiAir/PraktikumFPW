@@ -3,17 +3,19 @@ import axios from 'axios'
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { addWishlist, removeWishlist } from '../app/wishlistSlice'
+import { removeWishlist } from '../app/wishlistSlice'
+import { addCart } from '../app/cartSlice'
 
 export default function Wishlist() {
     const [list, setList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const dispacth = useDispatch();
+    const dispatch = useDispatch();
     const wishlist = useSelector((state) => state.wishlist.wishlist);
+    const cart = useSelector((state) => state.cart.cart);
     
     const removeFromWishlist = (idToRemove) => {
-        dispacth(removeWishlist(idToRemove));
+        dispatch(removeWishlist(idToRemove));
     }
 
     const dateToString = (timestamp) => {
@@ -40,6 +42,18 @@ export default function Wishlist() {
         setIsLoading(false);
     }
 
+    const findIdCart = (idToFind) => {
+        const temp = cart.find(id => id === idToFind);
+        if (temp) {
+            return true;
+        }
+        return false;
+    }
+
+    const addToCart = (id) => {
+        dispatch(addCart(id))
+    }
+
     useEffect(() => {
         fetch();
     }, [wishlist])
@@ -61,10 +75,19 @@ export default function Wishlist() {
                                         <p className='text-white text-sm pt-1.5'>{item.title}</p>
                                         <p className='text-release text-2xs pt-2'>release on {dateToString(item.releaseDate)}</p>
                                     </div>
-                                    <div className='w-3/12 flex justify-end h-full me-6'>
+                                    <div className='w-3/12 flex flex-col items-end justify-center h-full me-6 gap-y-3'>
                                         <button onClick={() => {
                                             removeFromWishlist(item.dealID);
                                         }} className="text-2xs text-red-600 hover:opacity-50 hover:underline">REMOVE</button>
+                                        {findIdCart(item.dealID) ? (
+                                            <button onClick={() => {
+                                                addToCart(item.dealID);
+                                            }} className="text-2xs text-green-400 hover:opacity-50 hover:underline opacity-50" disabled>ADD TO CART</button>
+                                        ) : (
+                                            <button onClick={() => {
+                                                addToCart(item.dealID);
+                                            }} className="text-2xs text-green-400 hover:opacity-50 hover:underline">ADD TO CART</button>
+                                        )}
                                     </div>
                                 </div>
                             ))}

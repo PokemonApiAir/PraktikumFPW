@@ -9,6 +9,7 @@ import Navbar from './components/navbar'
 import Home from './home'
 import Catalog from './catalog'
 import Wishlist from './Wishlist'
+import History from "./history";
 
 export default function Dashboard() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,6 +32,7 @@ export default function Dashboard() {
                 {route == "home" && <Home/>}
                 {route == "catalog" && <Catalog/>}
                 {route == "wishlist" && <Wishlist/>}
+                {route == "history" && <History/>}
             </div>
         </>
     )

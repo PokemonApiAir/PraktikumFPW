@@ -1,4 +1,4 @@
-export default function CatalogCard({item, dateToString, findId, removeFromWishlist, addToWishlist}) {
+export default function CatalogCard({item, dateToString, findId, removeFromWishlist, addToWishlist, findIdCart, addToCart}) {
     return (
         <>
             <div className='w-full h-16 bg-catalog-card flex items-center'>
@@ -19,15 +19,24 @@ export default function CatalogCard({item, dateToString, findId, removeFromWishl
                     </div>
                     <p className='text-release text-2xs pt-1'>release on {dateToString(item.releaseDate)}</p>
                 </div>
-                <div className='1/12'>
+                <div className='1/12 rounded bg-slate-300'>
                     {findId(item.dealID) == true ? (
                         <button onClick={() => {
                             removeFromWishlist(item.dealID);
-                        }} className="text-sm hover:opacity-50 bg-slate-300 rounded py-1 px-1">❤️</button>
+                        }} className="text-sm hover:opacity-50 py-1 px-1">❤️</button>
                     ) : (
                         <button onClick={() => {
                             addToWishlist(item.dealID);
-                        }} className="text-sm hover:opacity-50 bg-slate-400 rounded py-1 px-1">🖤</button>
+                        }} className="text-sm hover:opacity-50 py-1 px-1">🖤</button>
+                    )}
+                    {findIdCart(item.dealID) == true ? (
+                        <button onClick={() => {
+                            alert("Item sudah ada di dalam cart");
+                        }} className="text-xs p-1 opacity-50" disabled>🛒</button>
+                    ) : (
+                        <button onClick={() => {
+                            addToCart(item.dealID);
+                        }} className="text-xs p-1">🛒</button>
                     )}
                 </div>
             </div>

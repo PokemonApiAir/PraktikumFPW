@@ -4,7 +4,8 @@ import axios from 'axios'
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import {removeWishlist, addWishlist} from '../app/wishlistSlice'
+import { removeWishlist, addWishlist } from '../app/wishlistSlice'
+import { addCart } from '../app/cartSlice'
 
 import CatalogCard from './components/catalogCard';
 
@@ -17,6 +18,7 @@ export default function Catalog() {
 
     const dispatch = useDispatch();
     const wishlist = useSelector((state) => state.wishlist.wishlist);
+    const cart = useSelector((state) => state.cart.cart);
 
     const submit = data => {
         setPage(0);
@@ -29,6 +31,18 @@ export default function Catalog() {
             return true;
         }
         return false;
+    }
+
+    const findIdCart = (idToFind) => {
+        const temp = cart.find(id => id === idToFind);
+        if (temp) {
+            return true;
+        }
+        return false;
+    }
+
+    const addToCart = (id) => {
+        dispatch(addCart(id))
     }
 
     const removeFromWishlist = (idToRemove) => {
@@ -97,7 +111,7 @@ export default function Catalog() {
                         </form>
                         <div className="w-full h-full flex flex-col gap-y-1">
                             {catalog && catalog.map((item, idx) => (
-                                <CatalogCard key={idx} item={item} dateToString={dateToString} findId={findId} removeFromWishlist={removeFromWishlist} addToWishlist={addToWishlist}/>
+                                <CatalogCard key={idx} item={item} dateToString={dateToString} findId={findId} removeFromWishlist={removeFromWishlist} addToWishlist={addToWishlist} findIdCart={findIdCart} addToCart={addToCart}/>
                             ))}
                         </div>
                         <div className='w-full h-8 flex justify-center items-center mt-6'>

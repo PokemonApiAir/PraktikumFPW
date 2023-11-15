@@ -1,7 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
-import {removeWishlist, addWishlist} from '../app/wishlistSlice'
+
+import { removeWishlist, addWishlist } from '../app/wishlistSlice'
+import { addCart } from '../app/cartSlice'
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +15,7 @@ export default function Home() {
 
     const dispatch = useDispatch();
     const wishlist = useSelector((state) => state.wishlist.wishlist);
+    const cart = useSelector((state) => state.cart.cart);
 
     const fetchData = async() => {
         setIsLoading(true);
@@ -59,12 +62,24 @@ export default function Home() {
         return false;
     }
 
+    const findIdCart = (idToFind) => {
+        const temp = cart.find(id => id === idToFind);
+        if (temp) {
+            return true;
+        }
+        return false;
+    }
+
     const removeFromWishlist = (idToRemove) => {
         dispatch(removeWishlist(idToRemove))
     }
 
     const addToWishlist = (id) => {
         dispatch(addWishlist(id))
+    }
+
+    const addToCart = (id) => {
+        dispatch(addCart(id))
     }
 
     const next = () => {
@@ -119,6 +134,15 @@ export default function Home() {
                                         <button onClick={() => {
                                             addToWishlist(newReleaseData[idNewRelease].dealID);
                                         }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                    )}
+                                    {findIdCart(newReleaseData[idNewRelease].dealID) == true ? (
+                                        <button onClick={() => {
+                                            alert("Item sudah ada di dalam cart");
+                                        }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                    ) : (
+                                        <button onClick={() => {
+                                            addToCart(newReleaseData[idNewRelease].dealID);
+                                        }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                     )}
                                 </div>
                                 <div className="h-1/2 flex flex-col justify-end items-start">
@@ -178,6 +202,15 @@ export default function Home() {
                                                 addToWishlist(bestData[0].dealID);
                                             }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
                                         )}
+                                        {findIdCart(bestData[0].dealID) == true ? (
+                                            <button onClick={() => {
+                                                alert("Item sudah ada di dalam cart");
+                                            }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                        ) : (
+                                            <button onClick={() => {
+                                                addToCart(bestData[0].dealID);
+                                            }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -188,15 +221,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[1].title}</p>
                                     </div>
                                     <div className="w-full t-3 flex justify-start items-end">
-                                        {findId(bestData[1].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(bestData[1].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(bestData[1].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                        <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(bestData[1].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(bestData[1].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(bestData[1].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(bestData[1].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(bestData[1].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[1].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[1].normalPrice}</p>
@@ -217,15 +261,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[2].title}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
-                                        {findId(bestData[2].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(bestData[2].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(bestData[2].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                        <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(bestData[2].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(bestData[2].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(bestData[2].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(bestData[2].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(bestData[2].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[2].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[2].normalPrice}</p>
@@ -248,15 +303,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[3].title}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
-                                        {findId(bestData[3].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(bestData[3].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(bestData[3].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                        <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(bestData[3].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(bestData[3].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(bestData[3].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(bestData[3].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(bestData[3].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[3].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[3].normalPrice}</p>
@@ -277,15 +343,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{bestData[4].title}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
-                                        {findId(bestData[4].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(bestData[4].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(bestData[4].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                        <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(bestData[4].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(bestData[4].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(bestData[4].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(bestData[4].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(bestData[4].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {bestData[4].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${bestData[4].normalPrice}</p>
@@ -314,15 +391,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[1].title + " (" + metacriticData[1].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
-                                        {findId(metacriticData[1].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(metacriticData[1].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(metacriticData[1].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                        <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(metacriticData[1].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(metacriticData[1].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(metacriticData[1].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(metacriticData[1].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(metacriticData[1].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[1].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[1].normalPrice}</p>
@@ -343,15 +431,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[2].title + " (" + metacriticData[2].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
-                                        {findId(metacriticData[2].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(metacriticData[2].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(metacriticData[2].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                    <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(metacriticData[2].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(metacriticData[2].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(metacriticData[2].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(metacriticData[2].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(metacriticData[2].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[2].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[2].normalPrice}</p>
@@ -374,15 +473,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[3].title + " (" + metacriticData[3].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
-                                        {findId(metacriticData[3].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(metacriticData[3].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(metacriticData[3].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                    <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(metacriticData[3].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(metacriticData[3].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(metacriticData[3].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(metacriticData[3].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(metacriticData[3].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[3].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[3].normalPrice}</p>
@@ -403,15 +513,26 @@ export default function Home() {
                                         <p className="text-white text-xs font-medium pt-1 ps-2">{metacriticData[4].title + " (" + metacriticData[4].metacriticScore + ")"}</p>
                                     </div>
                                     <div className="w-full h-full flex justify-start items-end">
-                                        {findId(metacriticData[4].dealID) == true ? (
-                                            <button onClick={() => {
-                                                removeFromWishlist(metacriticData[4].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">- Wishlist</button>
-                                        ) : (
-                                            <button onClick={() => {
-                                                addToWishlist(metacriticData[4].dealID);
-                                            }} className="w-4/12 text-cyan-400 text-xs hover:underline pb-1">+ Wishlist</button>
-                                        )}
+                                    <div className="w-4/12 flex flex-col items-start">
+                                            {findIdCart(metacriticData[4].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    alert("Item sudah ada di dalam cart");
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToCart(metacriticData[4].dealID);
+                                                }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
+                                            )}
+                                            {findId(metacriticData[4].dealID) == true ? (
+                                                <button onClick={() => {
+                                                    removeFromWishlist(metacriticData[4].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
+                                            ) : (
+                                                <button onClick={() => {
+                                                    addToWishlist(metacriticData[4].dealID);
+                                                }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                            )}
+                                        </div>
                                         <div className="w-8/12 flex justify-end">
                                             {metacriticData[4].isOnSale == "1" ? (
                                                 <p className="w-14 h-6 text-normal bg-normal line-through flex justify-center items-center">${metacriticData[4].normalPrice}</p>
@@ -455,6 +576,15 @@ export default function Home() {
                                             <button onClick={() => {
                                                 addToWishlist(metacriticData[0].dealID);
                                             }} className="text-cyan-400 text-xs hover:underline">+ Wishlist</button>
+                                        )}
+                                        {findIdCart(metacriticData[0].dealID) == true ? (
+                                            <button onClick={() => {
+                                                alert("Item sudah ada di dalam cart");
+                                            }} className="text-green-400 bg-green-700 text-2xs p-1 rounded opacity-50" disabled>Add to cart</button>
+                                        ) : (
+                                            <button onClick={() => {
+                                                addToCart(metacriticData[0].dealID);
+                                            }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                         )}
                                     </div>
                                 </div>

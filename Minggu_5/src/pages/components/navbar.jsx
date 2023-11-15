@@ -6,8 +6,8 @@ export default function Navbar({showModal, closeModal}) {
     
     const dispatch = useDispatch();
     const route = useSelector((state) => state.route.route);
-    
-    const count = 0;
+    const count = useSelector((state) => state.cart.cart).length;
+    // const count = 0;
     
     const home = () => {
         dispatch(setRoute("home"))
@@ -21,12 +21,16 @@ export default function Navbar({showModal, closeModal}) {
         dispatch(setRoute("wishlist"))
     }
 
+    const history = () => {
+        dispatch(setRoute("history"))
+    }
+
     return (
         <>
             <div className="h-20 w-full bg-navbar flex justify-center items-center">
                 <img className='h-12 w-12 me-2' src={Uap} alt="" />
                 <button onClick={home} className="text-slate-400 text-2xl font-semibold me-8">Uap</button>
-                <div className='flex justify-center items-center gap-x-10'>
+                <div className='z-20 flex justify-center items-center gap-x-10'>
                     {route == "home" ? (
                         <button onClick={home} className="text-slate-400 font-medium underline">Home</button>
                     ) : (
@@ -42,8 +46,13 @@ export default function Navbar({showModal, closeModal}) {
                     ) : (
                         <button onClick={wishlist} className="text-slate-400 font-medium hover:underline">Wishlist</button>
                     )}
+                    {route == "history" ? (
+                        <button onClick={history} className="text-slate-400 font-medium underline">History</button>
+                    ) : (
+                        <button onClick={history} className="text-slate-400 font-medium hover:underline">History</button>
+                    )}
                 </div>
-                <div className='absolute w-full flex justify-end'>
+                <div className='z-10 absolute w-full flex justify-end'>
                     <div className='absolute flex justify-center items-center rounded-full bg-red-500 h-4 w-4 me-11' >
                         <p className='text-xs text-white mb-0.5'>{count}</p>
                     </div>
