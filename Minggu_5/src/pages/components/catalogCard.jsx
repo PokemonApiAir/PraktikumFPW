@@ -36,6 +36,7 @@ export default function CatalogCard({item, dateToString, findId, removeFromWishl
                     ) : (
                         <button onClick={() => {
                             addToCart(item.dealID);
+                            alert(item.title + " berhasil ditambahkan ke cart");
                         }} className="text-xs p-1">🛒</button>
                     )}
                 </div>

@@ -142,6 +142,7 @@ export default function Home() {
                                     ) : (
                                         <button onClick={() => {
                                             addToCart(newReleaseData[idNewRelease].dealID);
+                                            alert(newReleaseData[idNewRelease].title + " berhasil ditambahkan ke cart");
                                         }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                     )}
                                 </div>
@@ -209,6 +210,7 @@ export default function Home() {
                                         ) : (
                                             <button onClick={() => {
                                                 addToCart(bestData[0].dealID);
+                                                alert(bestData[0].title + " berhasil ditambahkan ke cart");
                                             }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                         )}
                                     </div>
@@ -229,6 +231,7 @@ export default function Home() {
                                             ) : (
                                                 <button onClick={() => {
                                                     addToCart(bestData[1].dealID);
+                                                    alert(bestData[1].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                             )}
                                             {findId(bestData[1].dealID) == true ? (
@@ -269,6 +272,7 @@ export default function Home() {
                                             ) : (
                                                 <button onClick={() => {
                                                     addToCart(bestData[2].dealID);
+                                                    alert(bestData[2].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                             )}
                                             {findId(bestData[2].dealID) == true ? (
@@ -311,6 +315,7 @@ export default function Home() {
                                             ) : (
                                                 <button onClick={() => {
                                                     addToCart(bestData[3].dealID);
+                                                    alert(bestData[3].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                             )}
                                             {findId(bestData[3].dealID) == true ? (
@@ -351,6 +356,7 @@ export default function Home() {
                                             ) : (
                                                 <button onClick={() => {
                                                     addToCart(bestData[4].dealID);
+                                                    alert(bestData[4].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                             )}
                                             {findId(bestData[4].dealID) == true ? (
@@ -399,6 +405,7 @@ export default function Home() {
                                             ) : (
                                                 <button onClick={() => {
                                                     addToCart(metacriticData[1].dealID);
+                                                    alert(metacriticData[1].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                             )}
                                             {findId(metacriticData[1].dealID) == true ? (
@@ -439,6 +446,7 @@ export default function Home() {
                                             ) : (
                                                 <button onClick={() => {
                                                     addToCart(metacriticData[2].dealID);
+                                                    alert(metacriticData[2].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                             )}
                                             {findId(metacriticData[2].dealID) == true ? (
@@ -486,6 +494,7 @@ export default function Home() {
                                             {findId(metacriticData[3].dealID) == true ? (
                                                 <button onClick={() => {
                                                     removeFromWishlist(metacriticData[3].dealID);
+                                                    alert(metacriticData[3].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-cyan-400 text-xs hover:underline">- Wishlist</button>
                                             ) : (
                                                 <button onClick={() => {
@@ -521,6 +530,7 @@ export default function Home() {
                                             ) : (
                                                 <button onClick={() => {
                                                     addToCart(metacriticData[4].dealID);
+                                                    alert(metacriticData[4].title + " berhasil ditambahkan ke cart");
                                                 }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                             )}
                                             {findId(metacriticData[4].dealID) == true ? (
@@ -584,6 +594,7 @@ export default function Home() {
                                         ) : (
                                             <button onClick={() => {
                                                 addToCart(metacriticData[0].dealID);
+                                                alert(metacriticData[0].title + " berhasil ditambahkan ke cart");
                                             }} className="text-green-400 bg-green-700 text-2xs p-1 rounded">Add to cart</button>
                                         )}
                                     </div>

@@ -86,6 +86,7 @@ export default function Wishlist() {
                                         ) : (
                                             <button onClick={() => {
                                                 addToCart(item.dealID);
+                                                alert(item.title + " berhasil ditambahkan ke cart");
                                             }} className="text-2xs text-green-400 hover:opacity-50 hover:underline">ADD TO CART</button>
                                         )}
                                     </div>
