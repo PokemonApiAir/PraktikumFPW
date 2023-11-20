@@ -1,0 +1,32 @@
+[
+    {
+        "email": "evanr8391@gmail.com",
+        "nama": "Evan Richard Setiawinata",
+        "password": "123456789",
+        "story": [
+            {
+                "id" : 1,
+                "judul": "Orang Ganteng",
+                "thumb": "https://media.licdn.com/dms/image/D5603AQFePw8AdqeiyQ/profile-displayphoto-shrink_800_800/0/1672424626107?e=2147483647&v=beta&t=A3FaC711rNVvHfWS5ypaju34J4YzdAYI1lutGYWx3-Y",
+                "chara": [
+                    {
+                        "id_chara": 1,
+                        "nama": "Dionisius",
+                        "peran": "NPC",
+                        "umur": 20,
+                        "sifat": "baik hati dan tidak sombong",
+                        "backstory": "Adalah seorang teman yang baik hati dan tidak sombong"
+                    },
+                    {
+                        "id_chara": 2,
+                        "nama": "Evan",
+                        "peran": "MC",
+                        "umur": 20,
+                        "sifat": "sangat dermawan",
+                        "backstory": "seorang teman yang dermawan"
+                    }
+                ]
+            }
+        ]
+    }
+]
