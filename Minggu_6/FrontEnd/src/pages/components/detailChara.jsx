@@ -17,9 +17,9 @@ export default function DetailChara() {
         }),
     })
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    const { register, handleSubmit, reset, getValues, formState: { errors } } = useForm({
         resolver: joiResolver(schema),
-        values: {
+        defaultValues: {
             nama: data?.nama,
             umur: data?.umur,
             sifat: data?.sifat,
@@ -35,8 +35,11 @@ export default function DetailChara() {
         await handler.deleteChara(dataForm);
     };
 
-    const handleSaveClick = data => {
-        console.log(data);
+    const handleSaveClick = async () => {
+        const formData = getValues();
+        formData.id = data.id;
+        formData.id_chara = data.id_chara;
+        await handler.saveChara(formData);
     };
 
     return (

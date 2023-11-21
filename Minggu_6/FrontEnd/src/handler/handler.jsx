@@ -184,7 +184,7 @@ const deleteChara = async (data) => {
     return window.location = `/home/stories/${parseInt(data.id)}/characters/`
 }
 
-const saveChara = async () => {
+const saveChara = async (data) => {
     const email = localStorage.getItem("email");
     try {
         const response = await axios.put(`${url_api}/update-chara`, {
@@ -200,6 +200,7 @@ const saveChara = async () => {
     } catch (error) {
         throw error;
     }
+    return window.location = `/home/stories/${parseInt(data.id)}/characters/${parseInt(data.id_chara)}`
 }
 
 const formOverview = async (data) => {
@@ -307,4 +308,4 @@ function closeModal() {
     return window.location = "/login";
 }
 
-export default { login, register, getData, getStory, getStoryID, getStoryIdChara, detailChara, formAction, formOverview, formAddStory, updateProfile, deleteChara };
+export default { login, register, getData, getStory, getStoryID, getStoryIdChara, detailChara, formAction, formOverview, formAddStory, updateProfile, deleteChara, saveChara };
