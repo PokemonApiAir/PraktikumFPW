@@ -189,13 +189,13 @@ const saveChara = async (data) => {
     try {
         const response = await axios.put(`${url_api}/update-chara`, {
             email: email,
-            id: params.id,
-            character_id: params.character_id,
-            nama: item.nama,
-            peran: item.peran,
-            umur: item.umur,
-            sifat: item.sifat,
-            backstory: item.backstory,
+            id: data.id,
+            character_id: data.id_chara,
+            nama: data.nama,
+            peran: data.peran,
+            umur: data.umur,
+            sifat: data.sifat,
+            backstory: data.backstory,
         })
     } catch (error) {
         throw error;
