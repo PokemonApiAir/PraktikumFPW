@@ -11,9 +11,6 @@ export default function Profile() {
     const data = useLoaderData();
 
     const schema = Joi.object({
-        email: Joi.string().required().messages({
-            "string.empty":"Email tidak boleh kosong",
-        }),
         first_name: Joi.string().required().messages({
             "string.empty":"First name tidak boleh kosong",
         }),
@@ -27,7 +24,6 @@ export default function Profile() {
             'any.only': 'Konfirmasi password tidak sama',
         })
     })
-
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: joiResolver(schema),
         values: {
@@ -60,10 +56,10 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className="w-full h-7 flex">
-                        <input type="text" placeholder={`${errors.email ? errors?.email?.message : "Email"}`} className={`w-full h-full border border-black rounded ps-2 ${errors.email ? "placeholder-red-500" : ""}`} {...register("email")}/>
+                        <input type="text" className={`w-full h-full border border-black rounded ps-2`} disabled {...register("email")}/>
                     </div>
                     <div className="w-full h-7 flex">
-                        <input type="password" placeholder={`${errors.password ? errors?.password?.message : "Password"}`} className={`w-full h-full border border-black rounded ps-2 ${errors.password ? "placeholder-red-500" : ""}`} {...register("password")}/>
+                        <input type="password" placeholder={`${errors.password ? errors?.password?.message : "Password"}`} disabled={`${confirmPassword ? "" : "disabled"}`} className={`w-full h-full border border-black rounded ps-2 ${errors.password ? "placeholder-red-500" : ""}`} {...register("password")}/>
                     </div>
                     <div className="w-full h-14 flex justify-end">
                         {confirmPassword && 
