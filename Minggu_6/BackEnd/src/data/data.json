@@ -15,7 +15,7 @@
                         "nama": "Dionisius",
                         "peran": "NPC",
                         "umur": 20,
-                        "sifat": "baik hati dan tidak sombong",
+                        "sifat": "Baik hati dan tidak sombong",
                         "backstory": "Adalah seorang teman yang baik hati dan tidak sombong"
                     },
                     {
@@ -24,84 +24,46 @@
                         "peran": "MC",
                         "umur": 20,
                         "sifat": "sangat dermawan",
-                        "backstory": "seorang teman yang dermawan"
+                        "backstory": "Seorang teman yang dermawan"
                     },
                     {
                         "id_chara": 3,
                         "nama": "Felix",
                         "peran": "MC",
                         "umur": 20,
-                        "sifat": "sangat dermawan",
-                        "backstory": "seorang teman yang dermawan"
+                        "sifat": "Agak ngeeng",
+                        "backstory": "Ya gitu ndak bisa dijelasin"
                     }
                 ]
             },
             {
                 "id" : 2,
-                "judul": "Orang Ganteng",
-                "thumb": "https://media.licdn.com/dms/image/D5603AQFePw8AdqeiyQ/profile-displayphoto-shrink_800_800/0/1672424626107?e=2147483647&v=beta&t=A3FaC711rNVvHfWS5ypaju34J4YzdAYI1lutGYWx3-Y",
+                "judul": "Little Oceanid",
+                "thumb": "https://i.pinimg.com/originals/23/41/5b/23415b463506d1ea931e796688638959.jpg",
                 "chara": [
                     {
                         "id_chara": 1,
-                        "nama": "Dionisius",
-                        "peran": "NPC",
-                        "umur": 20,
-                        "sifat": "baik hati dan tidak sombong",
-                        "backstory": "Adalah seorang teman yang baik hati dan tidak sombong"
+                        "nama": "Furina",
+                        "peran": "MC",
+                        "umur": 500,
+                        "sifat": "Periang, flamboyan dan juga suka dramatis",
+                        "backstory": "Furina merupakan Hydro Archon yang menjaga region Fontaine selama ini. Dia merupakan  pengguna Sword dan memiliki elemen Hydro. Sifat Furina yang flamboyan dan juga suka dramatis. Meskipun begitu, dia tetap disayangi dan dipuja oleh masyarakat Fontaine."
                     },
                     {
                         "id_chara": 2,
-                        "nama": "Evan",
+                        "nama": "Iudex, Neuvillette",
                         "peran": "MC",
-                        "umur": 20,
-                        "sifat": "sangat dermawan",
-                        "backstory": "seorang teman yang dermawan"
-                    }
-                ]
-            },
-            {
-                "id" : 3,
-                "judul": "Orang Ganteng",
-                "thumb": "https://media.licdn.com/dms/image/D5603AQFePw8AdqeiyQ/profile-displayphoto-shrink_800_800/0/1672424626107?e=2147483647&v=beta&t=A3FaC711rNVvHfWS5ypaju34J4YzdAYI1lutGYWx3-Y",
-                "chara": [
-                    {
-                        "id_chara": 1,
-                        "nama": "Dionisius",
-                        "peran": "NPC",
-                        "umur": 20,
-                        "sifat": "baik hati dan tidak sombong",
-                        "backstory": "Adalah seorang teman yang baik hati dan tidak sombong"
+                        "umur": 1000,
+                        "sifat": "Dingin, tegas dan berwibawa",
+                        "backstory": "Neuvillette adalah seorang ketua hakim yang memiliki peran penting dalam wilayah Fontaine. Dia dikenal sebagai Ludex dan bertanggung jawab atas penegakan hukum di wilayah fontaine. Dia juga merupakan suksesor naga kuno hydro"
                     },
                     {
-                        "id_chara": 2,
-                        "nama": "Evan",
-                        "peran": "MC",
-                        "umur": 20,
-                        "sifat": "sangat dermawan",
-                        "backstory": "seorang teman yang dermawan"
-                    }
-                ]
-            },
-            {
-                "id" : 4,
-                "judul": "Orang Ganteng",
-                "thumb": "https://media.licdn.com/dms/image/D5603AQFePw8AdqeiyQ/profile-displayphoto-shrink_800_800/0/1672424626107?e=2147483647&v=beta&t=A3FaC711rNVvHfWS5ypaju34J4YzdAYI1lutGYWx3-Y",
-                "chara": [
-                    {
-                        "id_chara": 1,
-                        "nama": "Dionisius",
+                        "id_chara": 3,
+                        "nama": "Wriothesley",
                         "peran": "NPC",
                         "umur": 20,
-                        "sifat": "baik hati dan tidak sombong",
-                        "backstory": "Adalah seorang teman yang baik hati dan tidak sombong"
-                    },
-                    {
-                        "id_chara": 2,
-                        "nama": "Evan",
-                        "peran": "MC",
-                        "umur": 20,
-                        "sifat": "sangat dermawan",
-                        "backstory": "seorang teman yang dermawan"
+                        "sifat": "Tegas dan misterius",
+                        "backstory": "Penjaga penjara bawah air meropide yang memiliki gelar 'Duke'. Dia dan temannya sigewine merupakan petinggi sekaligus penjaga dari penjara bawah laut di fontaine dimana orang - orang yang diadili di fontaine dan dinyatakan bersalah akan dibuang ke penjara meropide ini dan dinyatakan 'Excomunicado'"
                     }
                 ]
             }

@@ -19,7 +19,7 @@ export default function DetailChara() {
 
     const { register, handleSubmit, reset, getValues, formState: { errors } } = useForm({
         resolver: joiResolver(schema),
-        defaultValues: {
+        values: {
             nama: data?.nama,
             umur: data?.umur,
             sifat: data?.sifat,

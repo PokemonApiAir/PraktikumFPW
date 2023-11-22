@@ -12,15 +12,15 @@ export default function Overview() {
 
     return (
         <>
-            <div className="w-full h-1/2 flex justify-center items-center">
-                <div className="w-4/12 h-full flex flex-col border border-black rounded-lg px-8 pt-6">
+            <div className="w-full h-2/4 flex justify-center items-center">
+                <div className="w-3/12 h-full flex flex-col border border-black rounded-lg px-8 pt-6">
                     <div className="w-full h-12 flex">
                         <Form action={`/home/stories/${data.id}/overview`} method="PATCH" className="w-1/2 h-full flex justify-start items-center gap-x-6">
-                            <input type="text" className="text-xl font-semibold w-40 border border-black rounded" {...register("judul")}/>
-                            <button type="submit">Edit</button>
+                            <input type="text" className="text-lg font-semibold w-32 border border-black rounded ps-1.5" {...register("judul")}/>
+                            <button className="w-12 h-1/2 rounded bg-gray-100 text-center" type="submit">Edit</button>
                         </Form>
                         <Form action={`/home/stories/${data.id}/overview`} method="DELETE" className="w-1/2 h-full flex justify-end items-center">
-                            <button className="w-24 h-8 bg-gray-200 rounded-lg">Delete</button>
+                            <button className="w-20 h-8 bg-gray-200 rounded-lg">Delete</button>
                         </Form>
                     </div>
                     <div className="w-full h-52">
